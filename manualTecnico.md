@@ -54,3 +54,4 @@ El proyecto está estructurado de la siguiente manera:
 2. **Clientes**: Los clientes se gestionan en un diccionario con el ID como clave.
 3. **Pedidos y Reseñas**: Los pedidos y las reseñas son objetos que se relacionan con productos y clientes mediante las clases correspondientes.
 
+

@@ -52,22 +52,3 @@ Este manual está diseñado para guiar a los usuarios a través de las funcional
 ## Salir
 
 Para salir de la aplicación, selecciona la opción "Salir" en el menú principal.
-
----
-
-### **Casos de Uso**
-
-#### **Caso de Uso 1: Añadir Producto**
-1. **Actor**: Administrador
-2. **Descripción**: El administrador desea añadir un nuevo producto a la base de datos del sistema.
-3. **Flujo**:
-   - El administrador selecciona "Gestionar Productos" en el menú.
-   - Introduce los detalles del producto (ID, nombre, precio y stock).
-   - El sistema confirma la creación del producto y lo añade a la lista.
-
-#### **Caso de Uso 2: Crear Pedido**
-1. **Actor**: Cliente
-2. **Descripción**: Un cliente realiza un pedido de productos disponibles.
-3. **Flujo**:
-   - El cliente selecciona productos e ingresa su información.
-   - El sistema crea un pedido y calcula el total.
