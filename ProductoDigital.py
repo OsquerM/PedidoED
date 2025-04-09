@@ -1,25 +1,29 @@
 from Producto import Producto
 
 class ProductoDigital(Producto):
-    """_summary_
-
-    :param Producto: _description_
-    :type Producto: _type_
     """
-    def __init__(self, id_producto: str, nombre: str, precio: float, stock: int, formato: str, tamano: float):
-        """_summary_
+    Clase que representa un producto digital, que es una extensión de la clase Producto.
+    
+    Atributos:
+    - formato (str): El formato del producto digital (e.g., PDF, EPUB).
+    - tamano (float): El tamaño del producto digital en megabytes (MB).
+    """
 
-        :param id_producto: _description_
+    def __init__(self, id_producto: str, nombre: str, precio: float, stock: int, formato: str, tamano: float):
+        """
+        Inicializa un producto digital con los parámetros proporcionados.
+
+        :param id_producto: El identificador único del producto.
         :type id_producto: str
-        :param nombre: _description_
+        :param nombre: El nombre del producto digital.
         :type nombre: str
-        :param precio: _description_
+        :param precio: El precio del producto digital.
         :type precio: float
-        :param stock: _description_
+        :param stock: La cantidad de productos digitales disponibles en stock.
         :type stock: int
-        :param formato: _description_
+        :param formato: El formato del producto digital (e.g., PDF, EPUB).
         :type formato: str
-        :param tamano: _description_
+        :param tamano: El tamaño del producto digital en MB.
         :type tamano: float
         """
         super().__init__(id_producto, nombre, precio, stock)
@@ -27,47 +31,58 @@ class ProductoDigital(Producto):
         self._tamano = tamano
 
     def get_formato(self):
-        """_summary_
+        """
+        Devuelve el formato del producto digital.
 
-        :return: _description_
-        :rtype: _type_
+        :return: El formato del producto digital.
+        :rtype: str
         """
         return self._formato
 
     def set_formato(self, formato: str):
-        """_summary_
+        """
+        Establece el formato del producto digital.
 
-        :param formato: _description_
+        :param formato: El nuevo formato para el producto digital.
         :type formato: str
         """
         self._formato = formato
 
     def get_tamano(self):
-        """_summary_
+        """
+        Devuelve el tamaño del producto digital en MB.
 
-        :return: _description_
-        :rtype: _type_
+        :return: El tamaño del producto digital.
+        :rtype: float
         """
         return self._tamano
 
     def set_tamano(self, tamano: float):
-        """_summary_
+        """
+        Establece el tamaño del producto digital en MB.
 
-        :param tamano: _description_
+        :param tamano: El nuevo tamaño del producto digital en MB.
         :type tamano: float
         """
         self._tamano = tamano
 
     def __str__(self):
-        """_summary_
+        """
+        Devuelve una representación en formato cadena del producto digital.
 
-        :return: _description_
-        :rtype: _type_
+        :return: Cadena representando el producto digital con sus atributos.
+        :rtype: str
         """
         return f"ProductoDigital(id: {self.get_id_producto()}, nombre: {self.get_nombre()}, precio: {self.get_precio()}, " \
                f"stock: {self.get_stock()}, formato: {self._formato}, tamaño: {self._tamano}MB)"
 
-# Añadir productos digitales
-
+# Crear un producto digital
 producto_digital = ProductoDigital("P001", "Ebook Python", 10.99, 50, "PDF", 2.5)
-producto_digital.append(producto_digital)
+
+# Lista de productos
+productos = []
+productos.append(producto_digital)
+
+# Mostrar el producto digital añadido
+for producto in productos:
+    print(producto)
