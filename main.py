@@ -9,6 +9,11 @@ pedidos = []
 reseñas = []
 
 def mostrar_menu():
+    """
+    Muestra el menú principal con las opciones disponibles para gestionar productos, clientes, pedidos, reseñas, o salir del sistema.
+
+    
+    """
     print("\n--- Menú Principal ---")
     print("1. Gestionar productos")
     print("2. Gestionar clientes")
@@ -17,6 +22,10 @@ def mostrar_menu():
     print("5. Salir")
 
 def gestionar_productos():
+    """
+    Permite gestionar los productos en el sistema. Ofrece opciones para agregar productos, listar productos y actualizar el stock de productos existentes.
+
+    """
     while True:
         print("\n--- Gestión de Productos ---")
         print("1. Añadir producto")
@@ -48,6 +57,11 @@ def gestionar_productos():
             break
 
 def gestionar_clientes():
+    """
+    Permite gestionar los clientes en el sistema. Ofrece opciones para agregar clientes, listar clientes y volver al menú principal.
+
+   
+    """
     while True:
         print("\n--- Gestión de Clientes ---")
         print("1. Añadir cliente")
@@ -71,6 +85,11 @@ def gestionar_clientes():
             break
 
 def gestionar_pedidos():
+    """
+    Permite gestionar los pedidos de los clientes. Ofrece opciones para crear nuevos pedidos, listar pedidos existentes, calcular el total de un pedido y volver al menú principal.
+
+    
+    """
     while True:
         print("\n--- Gestión de Pedidos ---")
         print("1. Crear pedido")
@@ -110,6 +129,10 @@ def gestionar_pedidos():
             break
 
 def gestionar_resenas():
+    """
+    Permite gestionar las reseñas de los productos. Ofrece opciones para agregar reseñas, listar reseñas existentes y volver al menú principal.
+
+    """
     while True:
         print("\n--- Gestión de Reseñas ---")
         print("1. Añadir reseña")
@@ -139,6 +162,10 @@ def gestionar_resenas():
             break
 
 def main():
+    """
+    Función principal que ejecuta el programa. Muestra el menú y permite gestionar productos, clientes, pedidos, reseñas, o salir.
+
+    """
     while True:
         mostrar_menu()
         opcion = input("Seleccione una opción: ")
