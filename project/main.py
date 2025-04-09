@@ -1,5 +1,5 @@
 from Producto import Producto
-from Cliente import Cliente
+from project.Cliente import Cliente
 from Pedido import Pedido
 from Reseña import Reseña
 

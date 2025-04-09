@@ -1,4 +1,4 @@
-from Cliente import Cliente
+from project.Cliente import Cliente
 from Producto import Producto
 from ProductoDigital import ProductoDigital
 

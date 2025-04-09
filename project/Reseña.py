@@ -1,5 +1,5 @@
 from Producto import Producto
-from Cliente import Cliente
+from project.Cliente import Cliente
 from ProductoDigital import ProductoDigital
 
 class Reseña(Producto, Cliente):
