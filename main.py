@@ -12,7 +12,7 @@ def mostrar_menu():
     """
     Muestra el menú principal con las opciones disponibles para gestionar productos, clientes, pedidos, reseñas, o salir del sistema.
 
-    
+    :return: None
     """
     print("\n--- Menú Principal ---")
     print("1. Gestionar productos")
@@ -25,6 +25,7 @@ def gestionar_productos():
     """
     Permite gestionar los productos en el sistema. Ofrece opciones para agregar productos, listar productos y actualizar el stock de productos existentes.
 
+    :return: None
     """
     while True:
         print("\n--- Gestión de Productos ---")
@@ -37,11 +38,14 @@ def gestionar_productos():
         if opcion == "1":
             id_producto = input("ID Producto: ")
             nombre = input("Nombre: ")
-            precio = float(input("Precio: "))
-            stock = int(input("Stock: "))
-            producto = Producto(id_producto, nombre, precio, stock)
-            productos.append(producto)
-            print(f"Producto '{nombre}' añadido.")
+            try:
+                precio = float(input("Precio: "))
+                stock = int(input("Stock: "))
+                producto = Producto(id_producto, nombre, precio, stock)
+                productos.append(producto)
+                print(f"Producto '{nombre}' añadido.")
+            except ValueError:
+                print("Error: Ingrese un precio y un stock válidos.")
         elif opcion == "2":
             print("\nLista de productos:")
             for producto in productos:
@@ -52,7 +56,10 @@ def gestionar_productos():
             for producto in productos:
                 if producto.id_producto == id_producto:
                     producto.actualizar_stock(cantidad)
+                    print(f"Stock de '{producto.nombre}' actualizado.")
                     break
+            else:
+                print("Producto no encontrado.")
         elif opcion == "4":
             break
 
@@ -60,7 +67,7 @@ def gestionar_clientes():
     """
     Permite gestionar los clientes en el sistema. Ofrece opciones para agregar clientes, listar clientes y volver al menú principal.
 
-   
+    :return: None
     """
     while True:
         print("\n--- Gestión de Clientes ---")
@@ -88,7 +95,7 @@ def gestionar_pedidos():
     """
     Permite gestionar los pedidos de los clientes. Ofrece opciones para crear nuevos pedidos, listar pedidos existentes, calcular el total de un pedido y volver al menú principal.
 
-    
+    :return: None
     """
     while True:
         print("\n--- Gestión de Pedidos ---")
@@ -110,6 +117,8 @@ def gestionar_pedidos():
                     producto = next((p for p in productos if p.id_producto == id_producto.strip()), None)
                     if producto:
                         pedido.agregar_producto(producto)
+                    else:
+                        print(f"Producto con ID {id_producto.strip()} no encontrado.")
                 pedidos.append(pedido)
                 print(f"Pedido '{id_pedido}' creado.")
             else:
@@ -132,6 +141,7 @@ def gestionar_resenas():
     """
     Permite gestionar las reseñas de los productos. Ofrece opciones para agregar reseñas, listar reseñas existentes y volver al menú principal.
 
+    :return: None
     """
     while True:
         print("\n--- Gestión de Reseñas ---")
@@ -145,15 +155,21 @@ def gestionar_resenas():
             id_producto = input("ID Producto: ")
             id_cliente = input("ID Cliente: ")
             comentario = input("Comentario: ")
-            puntuacion = int(input("Puntuación (1-5): "))
-            producto = next((p for p in productos if p.id_producto == id_producto), None)
-            cliente = clientes.get(id_cliente)
-            if producto and cliente:
-                reseña = Reseña(id_reseña, producto, cliente, comentario, puntuacion)
-                reseñas.append(reseña)
-                print(f"Reseña para el producto '{producto.nombre}' añadida.")
-            else:
-                print("Producto o Cliente no encontrados.")
+            try:
+                puntuacion = int(input("Puntuación (1-5): "))
+                if 1 <= puntuacion <= 5:
+                    producto = next((p for p in productos if p.id_producto == id_producto), None)
+                    cliente = clientes.get(id_cliente)
+                    if producto and cliente:
+                        reseña = Reseña(id_reseña, producto, cliente, comentario, puntuacion)
+                        reseñas.append(reseña)
+                        print(f"Reseña para el producto '{producto.nombre}' añadida.")
+                    else:
+                        print("Producto o Cliente no encontrados.")
+                else:
+                    print("La puntuación debe ser un número entre 1 y 5.")
+            except ValueError:
+                print("Error: Puntuación no válida.")
         elif opcion == "2":
             print("\nLista de reseñas:")
             for reseña in reseñas:
@@ -165,6 +181,7 @@ def main():
     """
     Función principal que ejecuta el programa. Muestra el menú y permite gestionar productos, clientes, pedidos, reseñas, o salir.
 
+    :return: None
     """
     while True:
         mostrar_menu()

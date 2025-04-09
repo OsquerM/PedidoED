@@ -6,14 +6,14 @@ class Reseña(Producto, Cliente):
     """
     Clase que representa una reseña de un producto hecha por un cliente.
 
-    Hereda de las clases Producto y Cliente.
+    Hereda de las clases `Producto` y `Cliente`.
 
     Atributos:
-    - id_reseña (str): Identificador único de la reseña.
-    - producto (Producto): El producto sobre el que se realiza la reseña.
-    - cliente (Cliente): El cliente que escribe la reseña.
-    - comentario (str): El comentario que el cliente deja sobre el producto.
-    - puntuacion (int): La puntuación dada al producto (de 1 a 5).
+        id_reseña (str): Identificador único de la reseña.
+        producto (Producto): El producto sobre el que se realiza la reseña.
+        cliente (Cliente): El cliente que escribe la reseña.
+        comentario (str): El comentario que el cliente deja sobre el producto.
+        puntuacion (int): La puntuación dada al producto (de 1 a 5).
     """
 
     def __init__(self, id_reseña: str, producto: Producto, cliente: Cliente, comentario: str, puntuacion: int):
@@ -137,8 +137,9 @@ class Reseña(Producto, Cliente):
         return f"Reseña(id: {self._id_reseña}, producto: {self._producto.get_nombre()}, cliente: {self._cliente.get_nombre()}, " \
                f"comentario: {self._comentario}, puntuacion: {self._puntuacion})"
 
+
 # Crear una reseña
-producto_digital = ProductoDigital("PD001", "Ebook de Python", 10.99, 50)
+producto_digital = ProductoDigital("PD001", "Ebook de Python", 10.99, 50, "PDF", 2.5)
 cliente1 = Cliente("C001", "Juan Pérez", "juanperez@email.com", "Calle Ficticia 123")
 
 reseña1 = Reseña("R001", producto_digital, cliente1, "Excelente Ebook", 5)

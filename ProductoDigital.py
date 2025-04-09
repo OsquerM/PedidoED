@@ -3,10 +3,14 @@ from Producto import Producto
 class ProductoDigital(Producto):
     """
     Clase que representa un producto digital, que es una extensión de la clase Producto.
-    
+
     Atributos:
-    - formato (str): El formato del producto digital (e.g., PDF, EPUB).
-    - tamano (float): El tamaño del producto digital en megabytes (MB).
+        id_producto (str): Identificador único del producto.
+        nombre (str): Nombre del producto digital.
+        precio (float): Precio del producto digital.
+        stock (int): Cantidad de productos digitales disponibles en stock.
+        formato (str): El formato del producto digital (e.g., PDF, EPUB).
+        tamano (float): El tamaño del producto digital en megabytes (MB).
     """
 
     def __init__(self, id_producto: str, nombre: str, precio: float, stock: int, formato: str, tamano: float):
@@ -52,7 +56,7 @@ class ProductoDigital(Producto):
         """
         Devuelve el tamaño del producto digital en MB.
 
-        :return: El tamaño del producto digital.
+        :return: El tamaño del producto digital en MB.
         :rtype: float
         """
         return self._tamano
@@ -75,6 +79,7 @@ class ProductoDigital(Producto):
         """
         return f"ProductoDigital(id: {self.get_id_producto()}, nombre: {self.get_nombre()}, precio: {self.get_precio()}, " \
                f"stock: {self.get_stock()}, formato: {self._formato}, tamaño: {self._tamano}MB)"
+
 
 # Crear un producto digital
 producto_digital = ProductoDigital("P001", "Ebook Python", 10.99, 50, "PDF", 2.5)

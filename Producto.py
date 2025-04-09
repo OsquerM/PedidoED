@@ -3,10 +3,10 @@ class Producto:
     Clase que representa un producto en un sistema de inventario.
 
     Atributos:
-    - id_producto (str): Identificador único del producto.
-    - nombre (str): Nombre del producto.
-    - precio (float): Precio del producto.
-    - stock (int): Cantidad disponible en inventario del producto.
+        id_producto (str): Identificador único del producto.
+        nombre (str): Nombre del producto.
+        precio (float): Precio del producto.
+        stock (int): Cantidad disponible en inventario del producto.
     """
 
     def __init__(self, id_producto: str, nombre: str, precio: float, stock: int):
